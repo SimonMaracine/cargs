@@ -77,6 +77,36 @@ static size_t cag_option_get_print_indention(const cag_option *options,
   return result;
 }
 
+CAG_PUBLIC void cag_option_print_error_string(
+  const cag_option_context *context,
+  char* buffer,
+  size_t max_length
+)
+{
+  int error_index;
+  char error_letter;
+
+  error_index = cag_option_get_error_index(context);
+  if (error_index < 0) {
+    return;
+  }
+
+  error_letter = cag_option_get_error_letter(context);
+  if (error_letter) {
+    snprintf(
+      buffer,
+      max_length,
+      "Unknown option '%c' in '%s'.\n", error_letter, context->argv[error_index]
+    );
+  } else {
+    snprintf(
+      buffer,
+      max_length,
+      "Unknown option '%s'.\n", context->argv[error_index]
+    );
+  }
+}
+
 void cag_option_init(cag_option_context *context, const cag_option *options,
   size_t option_count, int argc, char **argv)
 {

@@ -98,6 +98,8 @@ typedef int (*cag_printer)(void *ctx, const char *fmt, ...);
  */
 #define CAG_ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
+CAG_PUBLIC void cag_option_print_error_string(const cag_option_context *context, char* buffer, size_t max_length);
+
 /**
  * @brief Prepare argument options context for parsing.
  *
