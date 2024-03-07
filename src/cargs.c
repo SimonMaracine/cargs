@@ -96,13 +96,13 @@ CAG_PUBLIC void cag_option_print_error_string(
     snprintf(
       buffer,
       max_length,
-      "Unknown option '%c' in '%s'.\n", error_letter, context->argv[error_index]
+      "Unknown option '%c' in '%s'.", error_letter, context->argv[error_index]
     );
   } else {
     snprintf(
       buffer,
       max_length,
-      "Unknown option '%s'.\n", context->argv[error_index]
+      "Unknown option '%s'.", context->argv[error_index]
     );
   }
 }
